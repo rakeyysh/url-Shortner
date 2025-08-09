@@ -12,15 +12,15 @@ async function restrictToLoggedinUserOnly(req,res,next){
     if(!userUid) return res.redirect("/login");
 
    console.log("cookies after login",req.cookies);
-   console.log("middleware 2",userUid);
+   //console.log("middleware 2",userUid);
    const user = getUser(userUid);
-   console.log("user 1",user);
+   //console.log("user 1",user);
    
     if(!user){res.clearCookie("uid"); 
         return res.redirect("/login");
     }
 
-    console.log("user 2",user);
+    console.log("user 2",user);  // returns a payload data
    // req.user = user;
     next();
 }

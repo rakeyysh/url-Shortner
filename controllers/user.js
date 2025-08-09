@@ -22,11 +22,12 @@ async function handleUserLogin(req,res){
     
     
    
-     const sessionId = uuidv4();
-     console.log("from login controller:",sessionId);
-     setUser(sessionId,user);
-
-     res.cookie("uid",sessionId);
+  
+    //  console.log("from login controller:",sessionId);
+     const token = setUser(user);
+     
+     console.log("token",token);
+     res.cookie("uid",token);
    
     return res.redirect("/");
 }
