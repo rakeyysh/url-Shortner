@@ -27,9 +27,13 @@ async function handleUserLogin(req,res){
      const token = setUser(user);
      
      console.log("token",token);
-     res.cookie("uid",token);
+     
+       res.setHeader("authorization",`Bearer ${token}`);
+    
+
    
-    return res.redirect("/");
+    return res.json({token});
+   
 }
 
 module.exports = {
