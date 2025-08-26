@@ -18,7 +18,8 @@ async function handleUserSignUp(req,res){
 async function handleUserLogin(req,res){
     const  {  email, password} = req.body;
    const user = await User.findOne({ email,password});
-    if(!user) return({ error: "Invalid Username or Password"})
+   console.log(user);
+    if(!user) return res.status(401).json({ error: "Invalid Username or Password"});
     
     
    
@@ -28,10 +29,7 @@ async function handleUserLogin(req,res){
      
      console.log("token",token);
      
-       res.setHeader("authorization",`Bearer ${token}`);
-    
 
-   
     return res.json({token});
    
 }

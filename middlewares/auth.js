@@ -10,8 +10,9 @@ async function restrictToLoggedinUserOnly(req,res,next){
     
 
     const userUid = req.headers["authorization"];
+    //if(!userUid) return res.status(401).json({ error: "No authorization header" })
     if(!userUid) return res.redirect("/login");
-    if(!userUid) return res.status(401).json({ error: "No authorization header" })
+    //if(!userUid) return res.status(401).json({ error: "No authorization header" })
 ;
     
   //  console.log("middleware 1",userUid);

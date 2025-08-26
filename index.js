@@ -27,7 +27,7 @@ app.use(express.json());
 
 
 
-app.use('/url',restrictToLoggedinUserOnly, urlRoute);
+app.use('/url',restrictToLoggedinUserOnly,urlRoute);
 app.use("/", staticRoute);
 app.use("/user", userRoute)
 
@@ -57,7 +57,7 @@ app.get('/url/:shortID', async (req, res) => {
             },
         }
     })
-    //console.log(entry);
+    console.log(entry);
     res.redirect(entry.redirectURL);
 })
 
